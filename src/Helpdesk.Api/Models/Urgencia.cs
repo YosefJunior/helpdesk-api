@@ -3,7 +3,7 @@
     public enum Urgencia
     {
         Baixa,
-        Bedia,
+        Media,
         Alta
     }
 }

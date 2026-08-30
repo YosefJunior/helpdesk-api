@@ -9,7 +9,6 @@ namespace Helpdesk.Api.Repositories
         public void Create(string nome, string email, Setor setor, string descricao, TipoChamado tipo, Urgencia urgencia)
         {
             var novoChamado = new Chamado(nome, email, setor, descricao, tipo, urgencia);
-            _chamados.Add(novoChamado);
             novoChamado.DefinirId(_proximoId);
             _proximoId++;
             _chamados.Add(novoChamado);

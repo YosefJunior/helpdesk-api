@@ -1,3 +1,6 @@
+using Helpdesk.Api.Models;
+using Helpdesk.Api.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
