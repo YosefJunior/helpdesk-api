@@ -25,5 +25,16 @@ namespace Helpdesk.Api.Repositories
         {
             return _chamados.FirstOrDefault(c => c.Id == id);
         }
+
+        public bool AlterarStatus(int id, StatusChamado novoStatus)
+        {
+            var chamado = GetById(id);
+            if (chamado == null)
+            {
+                return false;
+            }
+            chamado.AlterarStatus(novoStatus);
+            return true;
+        }
     }
 }

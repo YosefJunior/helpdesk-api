@@ -9,7 +9,7 @@
         public string Descricao { get; set; }
         public TipoChamado Tipo { get; set; }
         public Urgencia Urgencia { get; set; }
-        public StatusChamado Status { get; set; }
+        public StatusChamado Status { get; private set; }
         public DateTime DataAbertura { get; set; }
 
         public Chamado(string nome, string email, Setor setor, string descricao, TipoChamado tipo, Urgencia urgencia)
@@ -27,6 +27,11 @@
         public void DefinirId(int id)
         {
             Id = id;
+        }
+
+        public void AlterarStatus(StatusChamado novoStatus)
+        {
+            Status = novoStatus;
         }
     }
 }
