@@ -5,10 +5,10 @@
         public int Id { get; private set; }
         public string Nome { get; set; }
         public string Email { get; set; }
-        public Setor Setor { get; set; }
-        public string Descricao { get; set; }
-        public TipoChamado Tipo { get; set; }
-        public Urgencia Urgencia { get; set; }
+        public Setor Setor { get; private set; }
+        public string Descricao { get; private set; }
+        public TipoChamado Tipo { get; private set; }
+        public Urgencia Urgencia { get; private set; }
         public StatusChamado Status { get; private set; }
         public DateTime DataAbertura { get; set; }
 
@@ -32,6 +32,18 @@
         public void AlterarStatus(StatusChamado novoStatus)
         {
             Status = novoStatus;
+        }
+
+        public void AtualizarDados(string descricao, Setor setor, TipoChamado tipo)
+        {
+            Descricao = descricao;
+            Setor = setor;
+            Tipo = tipo;
+        }
+
+        public void AlterarUrgencia(Urgencia novaUrgencia)
+        {
+            Urgencia = novaUrgencia;
         }
     }
 }

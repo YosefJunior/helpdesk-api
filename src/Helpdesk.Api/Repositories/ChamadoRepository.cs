@@ -36,5 +36,27 @@ namespace Helpdesk.Api.Repositories
             chamado.AlterarStatus(novoStatus);
             return true;
         }
+
+        public bool AtualizarDados(int id, string descricao, Setor setor, TipoChamado tipo)
+        {
+            var chamado = GetById(id);
+            if (chamado == null)
+            {
+                return false;
+            }
+            chamado.AtualizarDados(descricao, setor, tipo);
+            return true;
+        }
+
+        public bool AlterarUrgencia(int id, Urgencia novaUrgencia)
+        {
+            var chamado = GetById(id);
+            if (chamado == null)
+            {
+                return false;
+            }
+            chamado.AlterarUrgencia(novaUrgencia);
+            return true;
+        }
     }
 }
