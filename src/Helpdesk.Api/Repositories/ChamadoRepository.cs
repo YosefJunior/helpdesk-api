@@ -6,12 +6,24 @@ namespace Helpdesk.Api.Repositories
     {
         private readonly List<Chamado> _chamados = new List<Chamado>();
         private int _proximoId = 1;
-        public void Create(string nome, string email, Setor setor, string descricao, TipoChamado tipo, Urgencia urgencia)
+        public void Create(string nome, string email, Setor setor,
+            string descricao, TipoChamado tipo, Urgencia urgencia)
+
         {
             var novoChamado = new Chamado(nome, email, setor, descricao, tipo, urgencia);
             novoChamado.DefinirId(_proximoId);
             _proximoId++;
             _chamados.Add(novoChamado);
+        }
+
+        public List<Chamado> GetAll()
+        {
+            return _chamados;
+        }
+
+        public Chamado GetById(int id)
+        {
+            return _chamados.FirstOrDefault(c => c.Id == id);
         }
     }
 }
